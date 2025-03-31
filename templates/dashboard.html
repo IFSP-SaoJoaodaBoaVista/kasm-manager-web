@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Images Dashboard</title>
+    <link href="{{ url_for('static', filename='css/default.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Docker Images Dashboard</h1>
+            <p>Select a Docker image to launch a new KasmWeb instance.</p>
+        </div>
+        <div class="grid">
+            {% for image in images %}
+                <div class="card">
+                    <img src="{{ url_for('static', filename=image.image_url) }}" alt="{{ image.name }}">
+                    <a href="{{ image.link }}" target="_blank">{{ image.name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
